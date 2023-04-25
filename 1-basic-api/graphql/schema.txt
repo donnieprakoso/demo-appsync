@@ -1,0 +1,45 @@
+
+type Characters {
+    id: ID!
+    name:String!
+    height:Int
+    birth_year:String
+    gender:Gender
+    description:String
+}
+
+enum Gender{
+    male,
+    female,
+    unknown
+}
+
+
+ type PaginatedCharacters {
+                    items: [Characters!]!
+                    nextToken: String
+                }
+
+                type Query {
+                    allCharacters(limit: Int, nextToken: String): PaginatedCharacters!
+                    getCharacter(id: ID!): Characters
+                }
+                type Mutation {
+                    createCharacter( name:String!,
+    birth_year:String,
+    height:Int,
+    description:String,
+    gender:Gender): Characters
+                    deleteCharacter(id: ID!): Characters
+                    updateCharacter(id: ID!,
+    name:String!,
+    birth_year:String,
+    height:Int,
+    gender:Gender,
+    description:String):Characters
+
+                }
+                type Schema {
+                    query: Query
+                    mutation: Mutation
+                }

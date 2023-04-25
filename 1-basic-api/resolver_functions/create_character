@@ -1,0 +1,16 @@
+{
+    "version": "2017-02-28",
+    "operation": "PutItem",
+    "key": {
+        "id": {
+            "S": "$util.autoId()"
+        }
+    },
+    "attributeValues": {
+        "name": $util.dynamodb.toDynamoDBJson($ctx.args.name),
+        "height": $util.dynamodb.toDynamoDBJson($ctx.args.height),
+        "birth_year": $util.dynamodb.toDynamoDBJson($ctx.args.birth_year),
+        "gender": $util.dynamodb.toDynamoDBJson($ctx.args.gender),
+        "description":$util.dynamodb.toDynamoDBJson($ctx.args.description)
+    }
+}

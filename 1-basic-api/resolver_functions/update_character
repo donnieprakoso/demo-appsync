@@ -1,0 +1,25 @@
+ {
+                "version": "2017-02-28",
+                "operation": "UpdateItem",
+                "key":{
+                    "id":$util.dynamodb.toDynamoDBJson($ctx.args.id)
+                },
+                "update":{
+
+                "expression": "SET firstName = :firstName,lastName = :lastName, #ageField =:age,specialty = :specialty",
+
+                "expressionNames": {
+                "#ageField": "age"
+                },
+                "expressionValues": {
+                ":name": $util.dynamodb.toDynamoDBJson($ctx.args.name),
+                ":height": $util.dynamodb.toDynamoDBJson($ctx.args.height),
+                ":birth_year": $util.dynamodb.toDynamoDBJson($ctx.args.birth_year),
+                ":gender": $util.dynamodb.toDynamoDBJson($ctx.args.gender),
+                ":description":$util.dynamodb.toDynamoDBJson($ctx.args.description),
+                }
+                }
+
+
+            }
+
